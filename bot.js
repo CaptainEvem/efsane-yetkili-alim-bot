@@ -1,6 +1,8 @@
 const Discord = require("discord.js")
 const db = require("quick.db")
 const ayarlar = require("ayarlar.json")
+const token = require(ayarlar.token)
+const client = new Discord.Client();
 
 client.on("message", message => {
   let client = message.client;
@@ -116,3 +118,5 @@ client.yetkiler = message => {
   if(message.author.id === ayarlar.sahip) permlvl = 7;
   return permlvl;
 }
+
+client.login(token)
